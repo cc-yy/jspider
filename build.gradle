@@ -1,0 +1,67 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
+apply plugin: 'java'
+
+allprojects {
+    buildscript {
+        repositories {
+            mavenCentral()
+        }
+    }
+
+    apply plugin: 'java'
+
+    version = rootProject.version
+
+    configurations {
+        all*.exclude group: "commons-logging"
+        all*.exclude group: "log4j"
+        all*.exclude group: "org.apache.logging.log4j"
+        all*.exclude group: "org.slf4j",  module: "slf4j-jdk14"
+        all*.exclude group: "org.slf4j",  module: "slf4j-log4j12"
+    }
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        compileOnly 'org.projectlombok:lombok:1.18.10'
+        annotationProcessor 'org.projectlombok:lombok:1.18.10'
+
+        testCompileOnly 'org.projectlombok:lombok:1.18.10'
+        testAnnotationProcessor 'org.projectlombok:lombok:1.18.10'
+
+        testCompile 'org.junit.jupiter:junit-jupiter-api:5.5.2'
+        testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.5.2'
+    }
+
+    compileJava {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    test {
+        useJUnitPlatform()
+        reports.html.enabled = false
+    }
+}
+
+task zip(type: Zip) {
+    archiveName 'spider.zip'
+    from (project.rootDir){
+        exclude '*/build/*'
+        exclude '*/output/*'
+        exclude 'spider.zip'
+        exclude '**/*.log'
+    }
+    destinationDir project.rootDir
+}
+
+group 'me.jspider'
+version '1.0'
+

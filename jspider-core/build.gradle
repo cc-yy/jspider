@@ -1,0 +1,31 @@
+apply plugin: "java"
+apply plugin: 'application'
+
+application {
+    mainClassName = 'me.spider.crawl.Crawler'
+}
+
+dependencies {
+    compile project(':jspider-base')
+    compile project(':jspider-common')
+
+    compile "org.slf4j:slf4j-api:1.7.26"
+    compile "ch.qos.logback:logback-classic:1.2.3"
+    compile "org.slf4j:jul-to-slf4j:1.7.25"
+
+    compile "com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.10.0"
+    compile "com.fasterxml.jackson.dataformat:jackson-dataformat-csv:2.10.0"
+    compile "org.freemarker:freemarker:2.3.29"
+
+    compile "org.seleniumhq.selenium:selenium-java:3.141.59"
+
+    compile "org.apache.httpcomponents:httpclient:4.5.10"
+    compile "org.apache.httpcomponents:httpasyncclient:4.1.4"
+
+    compile 'me.jspider:jspider-core:1.0.0'
+
+    testCompile "org.mockito:mockito-core:3.2.0"
+    testCompile "org.mockito:mockito-junit-jupiter:3.2.0"
+    testCompile "org.springframework:spring-test:${springVersion}"
+    testCompile "com.github.tomakehurst:wiremock:2.25.0"
+}

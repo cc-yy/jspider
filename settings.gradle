@@ -1,0 +1,3 @@
+rootProject.name = 'jspider'
+
+include 'jspider-base', 'jspider-core', 'jspider-common'

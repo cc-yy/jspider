@@ -1,0 +1,24 @@
+apply plugin: "java"
+
+dependencies {
+    
+    compile "com.google.guava:guava:28.1-jre"
+    compile "org.apache.commons:commons-collections4:4.4"
+    compile "org.apache.commons:commons-lang3:3.9"
+    compile "commons-io:commons-io:2.6"
+    compile "commons-codec:commons-codec:1.13"
+
+    compile "org.slf4j:slf4j-api:1.7.26"
+    compile "org.slf4j:log4j-over-slf4j:1.7.26"
+    compile "org.slf4j:jcl-over-slf4j:1.7.26"
+    compile "ch.qos.logback:logback-classic:1.2.3"
+    compile "mcpack-j:mcpack-j:1.0.6.2"
+    compile "org.jsoup:jsoup:1.12.1"
+    compile "com.jayway.jsonpath:json-path:2.4.0"
+    compile "com.alibaba:fastjson:1.2.62"
+
+    compile "com.fasterxml.jackson.core:jackson-databind:2.10.0"
+    compile "org.springframework:spring-beans:${springVersion}"
+    compile "org.springframework:spring-core:${springVersion}"
+    compile "org.springframework:spring-context:${springVersion}"
+}
